@@ -1,0 +1,52 @@
+var generator = new Random(1);
+var standev = 125;
+var mean = 50;
+
+var painter = function() {
+    this.x = width/2;
+    this.y = height/2;
+};
+
+painter.prototype.paint = function() {
+    var numy = generator.nextGaussian();
+    var numx = generator.nextGaussian();
+    
+    
+    var yStepSize = standev*numy+mean;
+    var xStepSize = standev*numx+mean;
+    
+    this.x += xStepSize;
+    this.y += yStepSize;
+    
+    if (this.x > 400) {
+        this.x = 0;
+    } if (this.x < 0) {
+        this.x = 0;
+    }
+    
+    if (this.y > 400) {
+        this.y = 0;
+    } if (this.y < 0) {
+        this.y = 0;
+    }
+    
+};
+
+
+
+painter.prototype.display = function() {
+    var r = random(0, 255);
+    var g = random(0, 255);
+    var b = random(0, 255);
+    
+    stroke(r, g, b);
+    strokeWeight(10);
+    point(this.x, this.y);
+};
+
+var painter1 = new painter();
+
+draw = function() {
+    painter1.paint();
+    painter1.display();
+};
