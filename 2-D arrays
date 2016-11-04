@@ -1,0 +1,28 @@
+//one dimensional arrays
+var array = [2, 4, 5, 6];
+var array1 = [5, 5, 7, 7];
+var array2 = [1, 2, 3, 4];
+
+//two dimensional arrays
+var array2D = [array, array1, array2];
+var array2D1 = [[30, 59, 0], [1, 100, 80], [173, 70, 35]];
+
+//print out all 2, 4, 5, 6, 5, 5, 7, 7, 1, 2, 3, 4
+println(array2D);
+//print out 5, 5, 7, 7
+println(array2D[1]);
+//print out 30, 59, 0, 1, 100, 80, 170, 70, 35
+println(array2D1);
+//print out 70
+println(array2D1[2][1]);
+
+for (var col = 0; col < array2D1.length; col++){
+    for (var i = 0; i < array2D1.length; i++){
+        var r = array2D1[i][0];
+        var g = array2D1[i][1];
+        var b = array2D1[i][2];
+        fill(r, g, b);
+        ellipse(col * 100 + 50, i *100 + 50, 50, 50);
+    }
+}
+
